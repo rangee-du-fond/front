@@ -1,7 +1,7 @@
 import { readable } from 'svelte/store';
 import { fetchData } from './data.fetch';
 
-export const data = readable(null, async set => {
+export const datas = readable([], async set => {
   // implementation goes here
   const data = await fetchData();
   console.log('data', data);

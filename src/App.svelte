@@ -1,36 +1,36 @@
 <script>
-  import { data } from './apis/data.store';
+  import { datas } from './apis/data.store';
 </script>
 
 <style>
   main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
-  }
-
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
+    margin: 0 10%;
+    border: 1px solid #0003;
+    border-radius: 5px;
+    padding: 0;
   }
 </style>
 
+<nav class="navbar navbar-dark bg-dark justify-content-between" style="margin-bottom: 15px">
+  <p class="navbar-brand">Application</p>
+</nav>
 <main>
-  {#if $data}
-    <h1>{$data.message}</h1>
-  {/if}
-  <p>
-    Visit the
-    <a href="https://svelte.dev/tutorial">Svelte tutorial</a>
-    to learn how to build Svelte apps.
-  </p>
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">nom</th>
+        <th scope="col">valeur</th>
+      </tr>
+    </thead>
+    <tbody>
+      {#each $datas as data}
+        <tr>
+          <td>{data.id}</td>
+          <td>{data.name}</td>
+          <td>{data.value}</td>
+        </tr>
+      {/each}
+    </tbody>
+  </table>
 </main>
